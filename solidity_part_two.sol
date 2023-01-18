@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+// pragma solidity >=0.5.0 <0.9.0;
 
 contract AllSolidatyConcept {
     // data type
@@ -118,5 +119,17 @@ function outsite_functhree(address adres) view {
 }
 contract B is AllSolidatyConcept
 {
+    address payable user=payable(0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2);
+    // use this type of function for paying from another account address to our contact account address
+    function payEther() public payable {
 
+    }
+    // use this function for cheking account balance
+    function checkBlance() public view returns(uint) {
+        return address(this).balance;
+    }
+    // use this type of function for paying from our contract account to another address
+    function sendEther() public {
+        user.transfer(1 ether);
+    }
 }
